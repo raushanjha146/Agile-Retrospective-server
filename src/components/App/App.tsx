@@ -13,14 +13,17 @@ const LOCAL_DEV_SERVER_PORT = "4000";
 const SERVER_PORT = "8000";
 
 export const App = () => {
+  console.log('-> raushan-client App ')
   const { actions: { updateMode} } = useOvermind();
   let serverURL = window.location.origin;
   let initialBoardId = window.location.pathname.split("/").pop() || "";
 
   if (window.location.port === LOCAL_DEV_SERVER_PORT) {
+    console.log('-> raushan-client if LOCAL_DEV_SERVER_PORT ')
     serverURL = window.location.origin.replace(window.location.port, SERVER_PORT);
     initialBoardId = "dev-board";
   } else if (!initialBoardId) {
+    console.log('-> raushan-client if LOCAL_DEV_SERVER_PORT ')
     initialBoardId = uuid.v4();
     window.location.assign(`/board/${initialBoardId}`);
   }
