@@ -11,7 +11,7 @@ import { AppMode } from "../../overmind/state";
 
 const LOCAL_DEV_SERVER_PORT = "4000";
 const SERVER_PORT = "8000";
-
+console.log('-> raushan-client...')
 export const App = () => {
   console.log('-> raushan-client App ')
   const { actions: { updateMode} } = useOvermind();
@@ -28,6 +28,7 @@ export const App = () => {
     window.location.assign(`/board/${initialBoardId}`);
   }
 
+  console.log('-> raushan-client...--------------------------------------------------------------')
   const socket = io.connect(serverURL);
   const [boardId] = useState(initialBoardId);
   const [maxStars, setMaxStars] = useState(null as unknown as number);
