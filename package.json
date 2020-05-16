@@ -8,6 +8,10 @@
     "Joe Krump <krump.joseph@gmail.com>",
     "John Brennan"
   ],
+  "engines": {
+    "node": "v13.12.0",
+    "npm": "6.14.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/raushanjha146/Agile-Retrospective"
@@ -15,6 +19,12 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
+    "ts-loader": "^6.2.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
     "ngrok": "^3.2.5",
     "open": "7.0.2",
     "overmind": "22.0.5",
@@ -29,9 +39,11 @@
   },
   "scripts": {
     "tsc": "tsc",
+    "postinstall": "npm run tsc",
     "prod": "NODE_ENV=production concurrently --kill-others \"npm run watch\" \"ts-node-dev --respawn --transpileOnly server.ts\" \"ts-node-dev --transpileOnly ngrok.ts\"",
-    "dev:client": "webpack-dev-server --mode development --open",
+    "start": "npm run dev:server",
     "dev:server": "ts-node-dev --respawn --transpileOnly server.ts",
+    "dev:client": "webpack-dev-server --mode development --open",
     "watch": "webpack --watch"
   },
   "devDependencies": {
