@@ -41,7 +41,7 @@ const NEW_BOARD = {
 let app = express();
 let server = require("http").Server(app);
 let io = SocketIO(server);
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 server.listen(port);
 console.log('server started at port - ' + port)
 app.use(express.static('public'));
