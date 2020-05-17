@@ -46,9 +46,13 @@ server.listen(port);
 console.log('server started at port - ' + port)
 app.use(express.static('public'));
 
-app.get("/board/:boardId", function(_req, res) {
+app.get("/", function(_req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
+
+/*app.get("/board/:boardId", function(_req, res) {
+  res.sendFile(__dirname + "/public/index.html");
+});*/
 
 function createNewBoard(boardId: string) {
   boards[boardId] = NEW_BOARD;
