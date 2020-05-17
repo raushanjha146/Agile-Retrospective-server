@@ -52,6 +52,7 @@ console.log('server started at port - ' + port)
 app.use(express.static('public'));
 
 app.get("/", function(_req, res) {
+  console.log("==>>  raushan 1");
   res.sendFile(__dirname + "/public/index.html");
 });
 
