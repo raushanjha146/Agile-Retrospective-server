@@ -53,7 +53,7 @@ app.use(express.static('public'));
 
 app.get("/", function(_req, res) {
   console.log("==>>  raushan 1");
-  res.sendFile(__dirname + "index.html");
+  res.send({ hello: 'world' });;
 });
 
 /*app.get("/board/:boardId", function(_req, res) {
