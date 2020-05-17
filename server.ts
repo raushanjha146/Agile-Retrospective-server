@@ -43,6 +43,11 @@ let server = require("http").Server(app);
 let io = SocketIO(server);
 const port = process.env.PORT || 8000;
 server.listen(port);
+/*server.listen(8000,'127.0.0.1',function(){
+  server.close(function(){
+    server.listen(8001,'192.168.0.105')
+  })
+ })*/
 console.log('server started at port - ' + port)
 app.use(express.static('public'));
 
