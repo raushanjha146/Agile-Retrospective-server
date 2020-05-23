@@ -43,6 +43,7 @@ let server = require("http").Server(app);
 let io = SocketIO(server);
 const port = process.env.PORT || 8000;
 server.listen(port);
+//server.listen(port, '0.0.0.0');
 /*server.listen(8000,'127.0.0.1',function(){
   server.close(function(){
     server.listen(8001,'192.168.0.105')
@@ -51,14 +52,14 @@ server.listen(port);
 console.log('server started at port - ' + port)
 app.use(express.static('public'));
 
-app.get("/", function(_req, res) {
+/*app.get("/", function(_req, res) {
   console.log("==>>  raushan 1");
   res.send({ hello: 'world' });;
-});
-
-/*app.get("/board/:boardId", function(_req, res) {
-  res.sendFile(__dirname + "/public/index.html");
 });*/
+
+app.get("/board/:boardId", function(_req, res) {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 function createNewBoard(boardId: string) {
   boards[boardId] = NEW_BOARD;
