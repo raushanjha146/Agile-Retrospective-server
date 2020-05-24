@@ -127,7 +127,7 @@ function emitUpdateRemainingStars(
 }
 
 io.on('connection', function (socket) {
-
+  console.log("Socket Connection call !!!");
   socket.on('board:show-results', function(data: { boardId: string, sessionId: string }) {
     if (!!boards[data.boardId]) {
       boards[data.boardId].showResults = !boards[data.boardId].showResults;
@@ -145,6 +145,7 @@ io.on('connection', function (socket) {
   socket.on('board:loaded', function (data: { boardId: string, sessionId?: string }) {
     const sessionId = data.sessionId ?? uuid.v4();
     const boardId = data.boardId ?? uuid.v4();
+    console.log("Socket Connection call -> board:loaded !!!");
 
     const newSession = {
       id: sessionId,

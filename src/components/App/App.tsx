@@ -15,17 +15,20 @@ const SERVER_PORT = "8000";
 export const App = () => {
   const { actions: { updateMode} } = useOvermind();
   let serverURL = window.location.origin;
+  //let serverURL = window.location.origin;
   let initialBoardId = window.location.pathname.split("/").pop() || "";
-
+  
   if (window.location.port === LOCAL_DEV_SERVER_PORT) {
+    console.log("if window.location.port-xxxx->> ");
     serverURL = window.location.origin.replace(window.location.port, SERVER_PORT);
     initialBoardId = "dev-board";
   } else if (!initialBoardId) {
+    console.log("else window.location.port-xxxx->> ");
     initialBoardId = uuid.v4();
     window.location.assign(`/board/${initialBoardId}`);
   }
-
-  const socket = io.connect(serverURL);
+  //const socket = io.connect(serverURL);
+  const socket = io.connect("https://agile-retro-test.herokuapp.com/");
   const [boardId] = useState(initialBoardId);
   const [maxStars, setMaxStars] = useState(null as unknown as number);
   const [showStarLimitAlert, updateShowStarLimitAlert] = useState(false);
