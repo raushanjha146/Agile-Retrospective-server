@@ -27,8 +27,8 @@ export const App = () => {
     initialBoardId = uuid.v4();
     window.location.assign(`/board/${initialBoardId}`);
   }
-  //const socket = io.connect(serverURL);
-  const socket = io.connect("https://agile-retro-test.herokuapp.com/");
+  const socket = io.connect(serverURL);
+  //const socket = io.connect("https://agile-retro-test.herokuapp.com/");
   const [boardId] = useState(initialBoardId);
   const [maxStars, setMaxStars] = useState(null as unknown as number);
   const [showStarLimitAlert, updateShowStarLimitAlert] = useState(false);
