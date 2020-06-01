@@ -57,7 +57,7 @@ app.use(express.static('public'));
   res.send({ hello: 'world' });;
 });*/
 
-app.get("/", function(_req, res) {
+app.get("/board/:boardId", function(_req, res) {
   res.sendFile(__dirname + "./src/index.html");
 });
 
